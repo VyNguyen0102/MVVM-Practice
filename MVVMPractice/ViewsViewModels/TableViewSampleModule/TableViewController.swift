@@ -9,8 +9,7 @@
 import UIKit
 import RxSwift
 
-class TableViewController: UIViewController, Storyboarded {
-    static var storyboardName = "Main"
+class TableViewController: UIViewController {
     weak var coordinator: MainCoordinator?
     
     @IBOutlet weak var tableView: UITableView! {

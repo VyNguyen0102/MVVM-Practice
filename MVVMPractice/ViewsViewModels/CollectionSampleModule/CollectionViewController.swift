@@ -9,8 +9,7 @@
 import UIKit
 import RxSwift
 
-class CollectionViewController: UIViewController, Storyboarded {
-    static var storyboardName: String = "Main"
+class CollectionViewController: UIViewController {
     
     weak var coordinator: MainCoordinator?
     

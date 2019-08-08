@@ -8,20 +8,8 @@
 
 import UIKit
 
-protocol Storyboarded {
-    static func instantiate() -> Self
-    static var storyboardName: String { get }
-}
-
-extension Storyboarded where Self: UIViewController {
-    static func instantiate() -> Self {
-        
-        let className = Self.string
-        
-        // load our storyboard
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        
-        // instantiate a view controller with that identifier, and force cast as the type that was requested
-        return storyboard.instantiateViewController(withIdentifier: className) as! Self
+extension UIStoryboard {
+    func instantiateViewController<T: UIViewController>() -> T {
+        return instantiateViewController(withIdentifier: T.string) as! T
     }
 }

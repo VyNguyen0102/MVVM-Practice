@@ -9,8 +9,7 @@
 import UIKit
 import RxSwift
 
-class RegisterViewController: UIViewController, Storyboarded {
-    static var storyboardName: String = "Main"
+class RegisterViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {

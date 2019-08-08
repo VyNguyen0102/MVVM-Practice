@@ -11,34 +11,37 @@ import UIKit
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    weak var storyboard: UIStoryboard!
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let vc = MainViewController.instantiate()
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc: MainViewController = storyboard.instantiateViewController()
+        self.storyboard = vc.storyboard
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
     
     func gotoSignInViewController() {
-        let vc = SignInViewController.instantiate()
+        let vc: SignInViewController = storyboard.instantiateViewController()
         navigationController.pushViewController(vc, animated: true)
     }
     
     func gotoRegisterViewController() {
-        let vc = RegisterViewController.instantiate()
+        let vc: RegisterViewController = storyboard.instantiateViewController()
         navigationController.pushViewController(vc, animated: true)
     }
     
     func gotoCollectionViewController() {
-        let vc = CollectionViewController.instantiate()
+        let vc: CollectionViewController = storyboard.instantiateViewController()
         navigationController.pushViewController(vc, animated: true)
     }
     
     func gotoTableViewViewController() {
-        let vc = TableViewController.instantiate()
+        let vc: TableViewController = storyboard.instantiateViewController()
         navigationController.pushViewController(vc, animated: true)
     }
     

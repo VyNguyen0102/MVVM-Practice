@@ -10,8 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SignInViewController: UIViewController, Storyboarded {
-    static var storyboardName: String = "Main"
+class SignInViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var passwordTextField: CustomTextField!

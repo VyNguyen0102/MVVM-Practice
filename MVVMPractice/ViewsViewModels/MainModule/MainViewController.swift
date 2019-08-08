@@ -8,8 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, Storyboarded {
-    static var storyboardName = "Main"
+class MainViewController: UIViewController {
     weak var coordinator: MainCoordinator?
     
     @IBOutlet weak var signInButton: UIButton! {
