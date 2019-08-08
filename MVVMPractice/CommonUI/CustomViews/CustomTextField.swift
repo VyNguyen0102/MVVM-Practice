@@ -58,8 +58,8 @@ class CustomTextField: BaseCustomView {
             viewModel.errorTextValue.accept(.none)
         }.disposed(by: disposeBag)
         
-        // validate email
-        if viewModel.inputType == .email {
+        // validate email, new password by editing change
+        if viewModel.inputType == .email || viewModel.inputType == .newPassword {
             textField.rx.controlEvent(UIControl.Event.editingChanged).bind { _ in
                 viewModel.validateInput()
             }.disposed(by: disposeBag)

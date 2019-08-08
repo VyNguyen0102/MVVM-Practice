@@ -14,34 +14,26 @@ class MainViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
-            signInButton.setupButtonDefaultStype()
-            signInButton.setTitle("Sign In", for: .normal)
+            signInButton.setupDefaultStyle(withTitle: "Sign In")
         }
     }
     
     @IBOutlet weak var registerButton: UIButton! {
         didSet {
-            registerButton.setupButtonDefaultStype()
-            registerButton.setTitle("Register", for: .normal)
+            registerButton.setupDefaultStyle(withTitle: "Register")
         }
     }
     
     @IBOutlet weak var collectionButton: UIButton! {
         didSet {
-            collectionButton.setupButtonDefaultStype()
-            collectionButton.setTitle("Collection View Sample", for: .normal)
+            collectionButton.setupDefaultStyle(withTitle: "Collection View Sample")
         }
     }
     
     @IBOutlet weak var tableViewButton: UIButton! {
         didSet {
-            tableViewButton.setupButtonDefaultStype()
-            tableViewButton.setTitle("Table View Sample", for: .normal)
+            tableViewButton.setupDefaultStyle(withTitle: "Table View Sample")
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     @IBAction func signInButtonButton(_ sender: Any) {

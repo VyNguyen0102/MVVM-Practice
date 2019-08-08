@@ -15,6 +15,7 @@ enum InputType {
     case email
     case universityName
     case password
+    case newPassword
     
     var placeholder: String {
         switch self {
@@ -28,13 +29,16 @@ enum InputType {
             return "University Name"
         case .password:
             return "Password"
+        case .newPassword:
+            return "New Password"
         }
     }
     
     var isSecureTextEntry: Bool {
-        if case .password = self {
+        switch self {
+        case .password, .newPassword:
             return true
-        } else {
+        default:
             return false
         }
     }
@@ -54,7 +58,7 @@ enum InputType {
     
     var isMadatory: Bool {
         switch self {
-        case .firstName, .email, .password:
+        case .firstName, .email, .password, .newPassword:
             return true
         default:
             return false
@@ -66,6 +70,7 @@ enum TextFieldError {
     case none
     case empty
     case notValidEmail
+    case notValidPassword(passwordCheckResult: PasswordCheckResult)
     case customError(localized: String)
     
     var localized: String {
@@ -76,6 +81,8 @@ enum TextFieldError {
             return "this field is required"
         case .notValidEmail:
             return "Not a valid email"
+        case .notValidPassword(let passwordCheckResult):
+            return passwordCheckResult.errorMessage
         case .customError(let localized):
             return localized
         }

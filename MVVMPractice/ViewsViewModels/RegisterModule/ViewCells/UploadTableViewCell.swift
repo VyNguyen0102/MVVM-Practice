@@ -39,8 +39,7 @@ class UploadTableViewCell: UITableViewCell {
     
     @IBOutlet weak var uploadButton: UIButton! {
         didSet {
-            uploadButton.setupButtonDefaultStype()
-            uploadButton.setTitle("Upload", for: .normal)
+            uploadButton.setupDefaultStyle(withTitle: "Upload")
         }
     }
     

@@ -3,7 +3,7 @@
         "id": 1,
         "header": "header 1",
         "longDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "images": [
+        "images": [ null,
             "https://dummyimage.com/600x400/000/fff",
             "https://dummyimage.com/650x400/000/fff",
             "https://dummyimage.com/500x400/000/fff",

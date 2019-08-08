@@ -18,8 +18,7 @@ class SignInViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
-            signInButton.setupButtonDefaultStype()
-            signInButton.setTitle("Sign In", for: .normal)
+            signInButton.setupDefaultStyle(withTitle: "Sign In")
         }
     }
     

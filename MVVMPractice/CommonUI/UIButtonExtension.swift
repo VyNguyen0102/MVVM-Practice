@@ -9,10 +9,13 @@
 import UIKit
 
 extension UIButton {
-    func setupButtonDefaultStype() {
+    func setupDefaultStyle(withTitle localize: String? = nil) {
         self.contentEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
         self.backgroundColor = UIColor.appGreen
         self.setBackgroundImage(UIImage.from(color: UIColor.appLightGray), for: .disabled)
         self.setTitleColor(UIColor.appTextWhite, for: UIControl.State.normal)
+        if let localize = localize {
+            self.setTitle(localize, for: .normal)
+        }
     }
 }

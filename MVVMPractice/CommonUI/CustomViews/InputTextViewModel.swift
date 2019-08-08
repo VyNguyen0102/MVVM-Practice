@@ -43,6 +43,9 @@ class InputTextViewModel {
         if inputType == .email && !validateEmail() {
             return false
         }
+        if inputType == .newPassword && !validatePassword()  {
+            return false
+        }
         return true
     }
     
@@ -72,4 +75,20 @@ class InputTextViewModel {
         return true
     }
     
+    var passwordCheck: PasswordCheckResult {
+        return inputTextValue.value.isValidPassword()
+    }
+    
+    var isValidPassword: Bool {
+        return passwordCheck == .validPassword
+    }
+
+    @discardableResult
+    func validatePassword() -> Bool { // true mean email valid
+        if validateEmpty() && !isValidPassword {
+            errorTextValue.accept(.notValidPassword(passwordCheckResult: passwordCheck))
+            return false
+        }
+        return true
+    }
 }

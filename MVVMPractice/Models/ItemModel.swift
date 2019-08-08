@@ -12,11 +12,11 @@ struct Item: Codable {
     let id: Int?
     let header: String?
     let longDescription: String?
-    private let _images: [String]?
+    private let _images: [String?]?
     
     var images: [String] {
         if let images = _images {
-            return images
+            return images.compactMap({ $0 })
         }
         return []
     }
@@ -26,9 +26,9 @@ struct Item: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case id              = "id"
-        case header          = "header"
-        case longDescription = "longDescription"
+        case id
+        case header
+        case longDescription
         case _images         = "images"
     }
 }
