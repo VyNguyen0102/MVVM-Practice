@@ -81,8 +81,11 @@ extension WebService {
     }
     
     private func createProvider(withManager manager: Manager) -> MoyaProvider<ServiceTarget> {
-        let plugins = [
-            NetworkLoggerPlugin(verbose: true)
+        let plugins: [PluginType] = [
+            NetworkLoggerPlugin(verbose: true),
+            NetworkActivityPlugin.init(networkActivityClosure: { (type, target) in
+                print(" NetworkActivityPlugin \(type) ")
+            })
         ]
         return MoyaProvider<ServiceTarget>(manager: manager, plugins: plugins)
     }

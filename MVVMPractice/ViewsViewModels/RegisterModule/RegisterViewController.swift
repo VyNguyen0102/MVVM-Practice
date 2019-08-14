@@ -28,9 +28,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton! {
         didSet {
-            submitButton.backgroundColor = UIColor.appGreen
-            submitButton.setTitleColor(UIColor.appTextWhite, for: UIControl.State.normal)
-            submitButton.setTitle("SUBMIT", for: UIControl.State.normal)
+            submitButton.setupDefaultStyle(withTitle: "SUBMIT")
         }
     }
     
@@ -48,8 +46,10 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
         setupReactive()
     }
+    
     func setupReactive()  {
         viewModel.profileInputs.subscribe(onNext: { profileInputs in
             self.profileInputs = profileInputs

@@ -70,7 +70,7 @@ enum TextFieldError {
     case none
     case empty
     case notValidEmail
-    case notValidPassword(passwordCheckResult: PasswordCheckResult)
+    case notValidPassword(passwordCheckResult: PasswordRequirement)
     case customError(localized: String)
     
     var localized: String {

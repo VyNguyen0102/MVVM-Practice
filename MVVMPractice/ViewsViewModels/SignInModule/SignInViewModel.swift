@@ -12,9 +12,6 @@ import RxSwift
 
 class SignInViewModel {
     
-    // Replace Bool by your sign in result model
-    let signInResult: PublishRelay<Bool> = PublishRelay<Bool>()
-    
     let email: InputTextViewModel = InputTextViewModel.init(inputType: .email)
     let password: InputTextViewModel = InputTextViewModel.init(inputType: .password)
     
@@ -23,6 +20,9 @@ class SignInViewModel {
             return emailIsValid && passwordIsValid
         }
     }
+    
+    // Replace Bool by your sign in result model
+    let signInResult: PublishRelay<Bool> = PublishRelay<Bool>()
     
     func signIn() {
         

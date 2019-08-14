@@ -9,7 +9,7 @@
 import Foundation
 
 // This on layout model because including error message localized
-enum PasswordCheckResult {
+enum PasswordRequirement {
     case allCharsMustBeValid
     case mustIncludeLowercase
     case mustIncludeUppercase
@@ -52,8 +52,8 @@ enum PasswordCheckResult {
     }
 }
 
-extension PasswordCheckResult {
-    static let allPasswordCheck: [PasswordCheckResult] = [.allCharsMustBeValid,
+extension PasswordRequirement {
+    static let allPasswordRequirement: [PasswordRequirement] = [.allCharsMustBeValid,
                                                           .mustIncludeLowercase,
                                                           .mustIncludeUppercase,
                                                           .mustIncludeSpecialChar,
@@ -61,11 +61,11 @@ extension PasswordCheckResult {
 }
 
 extension String {
-    func isValidPassword() -> PasswordCheckResult {
+    func isValidPassword() -> PasswordRequirement {
         let REGEX_SELF_MATCHES = "SELF MATCHES %@"
-        for passwordCheck in PasswordCheckResult.allPasswordCheck {
-            if !NSPredicate(format: REGEX_SELF_MATCHES, passwordCheck.regex).evaluate(with: self) {
-                return passwordCheck
+        for passwordRequirement in PasswordRequirement.allPasswordRequirement {
+            if !NSPredicate(format: REGEX_SELF_MATCHES, passwordRequirement.regex).evaluate(with: self) {
+                return passwordRequirement
             }
         }
         return .validPassword

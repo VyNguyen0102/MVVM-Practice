@@ -32,10 +32,10 @@ class SignInViewController: UIViewController {
     func setupReactive() {
         emailTextField.configure(viewModel: viewModel.email, disposeBag: disposeBag)
         passwordTextField.configure(viewModel: viewModel.password, disposeBag: disposeBag)
+        viewModel.isValidSignIn.bind(to: signInButton.rx.isEnabled).disposed(by: disposeBag)
         viewModel.signInResult.subscribe(onNext: { _ in
             self.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
-        viewModel.isValidSignIn.bind(to: signInButton.rx.isEnabled).disposed(by: disposeBag)
     }
     
     @IBAction func signInButtonDidTap(_ sender: Any) {

@@ -56,12 +56,14 @@ class TableViewCell: UITableViewCell {
     
     func configure(item: Item, isExpanded: Bool = false, isBookmark: Bool = false) {
         self.item = item
-        bookmarkButton.isChecked = isBookmark
+        
         titleLabel.text = item.header
         isNoImages = item.isNoImages
         imagesCollectionView.images = item.images
         descriptionLabel.text = item.longDescription
         self.isExpanded = isExpanded
+        
+        bookmarkButton.isChecked = isBookmark
         bookmarkButton.isCheckedObservable.subscribe(onNext: { isChecked in
             self.delegate?.setBookMarkItem(item: item, isBookmark: isChecked)
         }).disposed(by: disposeBag)

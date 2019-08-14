@@ -75,7 +75,7 @@ class InputTextViewModel {
         return true
     }
     
-    var passwordCheck: PasswordCheckResult {
+    var passwordCheck: PasswordRequirement {
         return inputTextValue.value.isValidPassword()
     }
     
