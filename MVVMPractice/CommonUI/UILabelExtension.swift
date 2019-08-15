@@ -60,8 +60,9 @@ enum LabelStyle {
 extension UILabel {
     
     var style: LabelStyle {
+        @available(*, unavailable)
         get {
-            return .undefined
+            fatalError("You cannot read from this object.")
         }
         set {
             setupLabelStype(style: newValue)

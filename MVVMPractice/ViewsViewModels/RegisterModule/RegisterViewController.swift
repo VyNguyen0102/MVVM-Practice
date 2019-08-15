@@ -55,6 +55,12 @@ class RegisterViewController: UIViewController {
             self.profileInputs = profileInputs
             self.tableView.reloadData()
         }).disposed(by: disposeBag)
+        
+        viewModel.selectedDocument.asObservable().ignoreNil().subscribe(onNext: { uploadViewModel in
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }).disposed(by: disposeBag)
     }
     
     @IBAction func submitButtonDidTap(_ sender: Any) {
@@ -80,29 +86,16 @@ extension RegisterViewController: UITableViewDataSource {
             return cell
         case .document(let type):
             let cell = tableView.dequeueReusableCell(withIdentifier: UploadTableViewCell.string, for: indexPath) as! UploadTableViewCell
-            cell.configure(uploadModel: type)
-            cell.delegate = self
+            cell.configure(uploadModel: type, selectedDocument: viewModel.selectedDocument)
             return cell
-        }
-    }
-}
-
-extension RegisterViewController: UploadTableViewCellDelegate {
-    func selectFileWith(type: UploadViewModel) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            viewModel.selectedDocument = type
-            imagePicker.delegate = self
-            present(imagePicker, animated: true, completion: nil)
         }
     }
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        viewModel.selectedDocument?.selectDocument(info: info)
-        self.dismiss(animated: true, completion: { () -> Void in
-            
-        })
-        viewModel.selectedDocument = nil
+        viewModel.selectedDocument.value?.selectDocument(info: info)
+        viewModel.selectedDocument.accept(nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

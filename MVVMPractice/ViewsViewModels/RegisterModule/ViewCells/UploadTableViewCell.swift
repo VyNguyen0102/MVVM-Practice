@@ -10,10 +10,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-protocol UploadTableViewCellDelegate: class {
-    func selectFileWith(type: UploadViewModel)
-}
-
 class UploadTableViewCell: UITableViewCell {
     
     @IBOutlet weak var documentTypeLabel: UILabel! {
@@ -43,7 +39,12 @@ class UploadTableViewCell: UITableViewCell {
         }
     }
     
-    weak var delegate: UploadTableViewCellDelegate?
+    var selectedDocument: Observable<UploadViewModel?> {
+        return uploadButton.rx.tap.asObservable().map { _ in
+            return self.uploadModel
+        }
+    }
+    
     weak var uploadModel: UploadViewModel?
     private var disposeBag = DisposeBag()
     
@@ -52,18 +53,13 @@ class UploadTableViewCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
     
-    func configure(uploadModel: UploadViewModel) {
+    func configure(uploadModel: UploadViewModel, selectedDocument: BehaviorRelay<UploadViewModel?>) {
         self.uploadModel = uploadModel
         documentTypeLabel.text = uploadModel.documentTypeName
         uploadModel.documentName.subscribe(onNext: { documentName in
             self.documentNameLabel.text = documentName
         }).disposed(by: disposeBag)
         uploadModel.uploadProgress.bind(to: self.uploadProgressView.rx.progress).disposed(by: disposeBag)
-    }
-    
-    @IBAction func uploadButtonDidTap(_ sender: Any) {
-        if let uploadModel = uploadModel {
-            delegate?.selectFileWith(type: uploadModel)
-        }
+        self.selectedDocument.bind(to: selectedDocument).disposed(by: disposeBag)
     }
 }

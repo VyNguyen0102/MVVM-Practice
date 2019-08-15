@@ -10,6 +10,7 @@ import UIKit
 
 extension UIStoryboard {
     func instantiateViewController<T: UIViewController>() -> T {
-        return instantiateViewController(withIdentifier: T.string) as! T
+        let viewControllerIdentifier = T.string // Reduce leak memory 
+        return instantiateViewController(withIdentifier: viewControllerIdentifier) as! T
     }
 }

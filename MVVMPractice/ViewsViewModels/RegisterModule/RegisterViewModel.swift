@@ -26,7 +26,8 @@ class RegisterViewModel {
     
     let cvDocument = UploadViewModel.init(documentTypeName: "CV")
     let bsDocument = UploadViewModel.init(documentTypeName: "Bachelor of Science")
-    weak var selectedDocument: UploadViewModel?
+    let oDocument = UploadViewModel.init(documentTypeName: "Other Document")
+    let selectedDocument = BehaviorRelay<UploadViewModel?>.init(value: nil)
     
     var profileInputs: Observable<[ProfileInputType]> {
         return isSeniorDeveloper.distinctUntilChanged().map({ isSeniorDeveloper in
@@ -42,7 +43,8 @@ class RegisterViewModel {
                         .inputText(viewModel: self.lastName),
                         .inputText(viewModel: self.email),
                         .inputText(viewModel: self.universityName),
-                        .document(viewModel: self.bsDocument)]
+                        .document(viewModel: self.bsDocument),
+                        .document(viewModel: self.oDocument)]
             }
         })
     }
@@ -64,6 +66,7 @@ class RegisterViewModel {
         print("upload file : \(bsDocument.documentName.value)")
         
         cvDocument.uploadProgress.accept(1.0)
+        oDocument.uploadProgress.accept(1.0)
         bsDocument.uploadProgress.accept(1.0)
         
         print("DONE :)")

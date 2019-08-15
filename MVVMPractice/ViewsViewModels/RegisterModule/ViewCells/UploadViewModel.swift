@@ -20,7 +20,7 @@ class UploadViewModel {
     }
     
     func selectDocument(info: [UIImagePickerController.InfoKey : Any]) {
-        if let url = info[UIImagePickerController.InfoKey.referenceURL] as? NSURL {
+        if let url = info[UIImagePickerController.InfoKey.imageURL] as? NSURL {
             documentName.accept(url.absoluteString ?? "")
         }
     }
