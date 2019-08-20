@@ -28,7 +28,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton! {
         didSet {
-            submitButton.setupDefaultStyle(withTitle: "SUBMIT")
+            submitButton.style.localized(text: "SUBMIT")
         }
     }
     

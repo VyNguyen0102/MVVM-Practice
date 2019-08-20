@@ -17,13 +17,13 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var bookmarkButton: FavoriteCheckBox!
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            titleLabel.style = .largeText
+            titleLabel.style.largeRegular().black()
         }
     }
     @IBOutlet weak var emptyImageView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
-            descriptionLabel.style = .smallText
+            descriptionLabel.style.mediumRegular().darkGray()
         }
     }
     @IBOutlet weak var expandedContainerView: UIStackView!

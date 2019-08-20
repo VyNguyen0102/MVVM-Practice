@@ -17,7 +17,7 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
-            signInButton.setupDefaultStyle(withTitle: "Sign In")
+            signInButton.style.normal().localized(text: "Sign In")
         }
     }
     

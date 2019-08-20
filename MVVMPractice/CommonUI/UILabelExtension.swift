@@ -8,69 +8,100 @@
 
 import UIKit
 
-enum LabelStyle {
-    case viewControllerHeader
-    case largeHeaderText
-    case largeText
-    case smallHeaderText
-    case smallText
-    case errorMessageText
-    case undefined
+// Font
+extension Styleable where Base: UILabel {
     
-    var font: UIFont {
-        switch self {
-        case .viewControllerHeader:
-            return UIFont.boldCustomFont(ofSize: 17)
-        case .largeHeaderText:
-            return UIFont.boldCustomFont(ofSize: 15)
-        case .largeText:
-            return UIFont.boldCustomFont(ofSize: 15)
-        case .smallHeaderText:
-            return UIFont.regularCustomFont(ofSize: 13)
-        case .smallText:
-            return UIFont.regularCustomFont(ofSize: 13)
-        case .errorMessageText:
-            return UIFont.regularCustomFont(ofSize: 13)
-        case .undefined:
-            return UIFont.boldCustomFont(ofSize: 15)
-        
-        }
+    @discardableResult
+    public func font(_ font: UIFont) -> Styleable<Base> {
+        self.base.font = font
+        return self
     }
     
-    var textColor: UIColor {
-        switch self {
-        case .viewControllerHeader:
-            return UIColor.appTextWhite
-        case .largeHeaderText:
-            return UIColor.appDarkGray
-        case .largeText:
-            return UIColor.appTextBlack
-        case .smallHeaderText:
-            return UIColor.appTextGray
-        case .smallText:
-            return UIColor.appTextGray
-        case .errorMessageText:
-            return UIColor.appRed
-        case .undefined:
-            return UIColor.appTextBlack
-        }
+    // REGULAR
+    
+    @discardableResult
+    public func regular(_ size: CGFloat) -> Styleable<Base> {
+        return self.font(UIFont.regularCustomFont(ofSize: size))
+    }
+    
+    @discardableResult
+    public func smallRegular() -> Styleable<Base> {
+        return self.regular(12)
+    }
+
+    @discardableResult
+    public func mediumRegular() -> Styleable<Base> {
+        return self.regular(15)
+    }
+
+    @discardableResult
+    public func largeRegular() -> Styleable<Base> {
+        return self.bold(17)
+    }
+
+    // BOLD
+    
+    @discardableResult
+    public func bold(_ size: CGFloat) -> Styleable<Base> {
+        return self.font(UIFont.boldCustomFont(ofSize: size))
+    }
+    
+    @discardableResult
+    public func smallBold() -> Styleable<Base> {
+        return self.bold(12)
+    }
+    
+    @discardableResult
+    public func mediumBold() -> Styleable<Base> {
+        return self.bold(15)
+    }
+    
+    @discardableResult
+    public func largeBold() -> Styleable<Base> {
+        return self.bold(17)
     }
 }
 
-extension UILabel {
+// Color
+extension Styleable where Base: UILabel {
     
-    var style: LabelStyle {
-        @available(*, unavailable)
-        get {
-            fatalError("You cannot read from this object.")
-        }
-        set {
-            setupLabelStype(style: newValue)
-        }
+    @discardableResult
+    public func color(_ color: UIColor) -> Styleable<Base> {
+        self.base.textColor = color
+        return self
     }
     
-    func setupLabelStype(style: LabelStyle) {
-        textColor = style.textColor
-        font = style.font
+    @discardableResult
+    public func lightGray() -> Styleable<Base> {
+        return color(.appLightGray)
+    }
+    
+    @discardableResult
+    public func darkGray() -> Styleable<Base> {
+        return color(.appDarkGray)
+    }
+    
+    @discardableResult
+    public func black() -> Styleable<Base> {
+        return color(.appTextBlack)
+    }
+    
+    @discardableResult
+    public func green() -> Styleable<Base> {
+        return color(.appGreen)
+    }
+    
+    @discardableResult
+    public func red() -> Styleable<Base> {
+        return color(.appRed)
+    }
+}
+
+// Text
+extension Styleable where Base: UILabel {
+    @discardableResult
+    public func localized(text: String) -> Styleable<Base> {
+        self.base.text = text
+        return self
     }
 }

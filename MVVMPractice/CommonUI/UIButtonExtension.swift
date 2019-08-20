@@ -8,14 +8,24 @@
 
 import UIKit
 
-extension UIButton {
-    func setupDefaultStyle(withTitle localize: String? = nil) {
-        self.contentEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
-        self.backgroundColor = UIColor.appGreen
-        self.setBackgroundImage(UIImage.from(color: UIColor.appLightGray), for: .disabled)
-        self.setTitleColor(UIColor.appTextWhite, for: UIControl.State.normal)
-        if let localize = localize {
-            self.setTitle(localize, for: .normal)
-        }
+// Font
+extension Styleable where Base: UIButton {
+    @discardableResult
+    public func normal() -> Styleable<Base> {
+        self.base.contentEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+        self.base.backgroundColor = UIColor.appGreen
+        self.base.titleLabel?.font = .boldCustomFont(ofSize: 15)
+        self.base.setBackgroundImage(UIImage.from(color: UIColor.appLightGray), for: .disabled)
+        self.base.setTitleColor(UIColor.appTextWhite, for: UIControl.State.normal)
+        return self
+    }
+}
+
+// Text
+extension Styleable where Base: UIButton {
+    @discardableResult
+    public func localized(text: String) -> Styleable<Base> {
+        self.base.setTitle(text, for: .normal)
+        return self
     }
 }

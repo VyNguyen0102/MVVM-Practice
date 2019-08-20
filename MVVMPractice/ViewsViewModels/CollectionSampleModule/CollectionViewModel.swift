@@ -45,7 +45,7 @@ class CollectionViewModel {
                 }
                 self.currentPage += 1
             case .failure(let error):
-                self.errorMessage.accept(error.description)
+                self.errorMessage.accept(error.localizedDescription)
             }
             self.isReloading.accept(false)
             self.isLoading.accept(false)

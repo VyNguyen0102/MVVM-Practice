@@ -10,12 +10,8 @@ import Foundation
 import Moya
 
 class UsersService: WebService {
-    let progressBlock: ProgressBlock = { (response: ProgressResponse) in
-        print("meo meo \(response.progress)")
-    }
     func getUsers(page: Int, completion: @escaping ((RequestResult<User>) -> Void)) {
-        print("meo meo")
-        request(withTarget: ServiceTarget.getUsers( perPage: 25, page: page), progress: progressBlock) { (result: RequestResult<UsersModel>, response) in
+        request(withTarget: ServiceTarget.getUsers( perPage: 25, page: page), progress: nil) { (result: RequestResult<UsersModel>, response) in
             switch result {
             case .success(let model):
                 completion(.success(model: model.first?.data ?? []))

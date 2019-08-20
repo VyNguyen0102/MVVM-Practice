@@ -16,13 +16,13 @@ class CustomTextField: BaseCustomView {
     
     @IBOutlet weak var mandatoryLabel: UILabel! {
         didSet {
-            mandatoryLabel.style = .errorMessageText
+            mandatoryLabel.style.smallRegular().red()
         }
     }
     
     @IBOutlet weak var errorMessageLabel: UILabel! {
         didSet {
-            errorMessageLabel.style = .errorMessageText
+            errorMessageLabel.style.smallRegular().red()
             errorMessageLabel.text = nil
         }
     }

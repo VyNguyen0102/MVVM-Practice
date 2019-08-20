@@ -13,25 +13,25 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
-            signInButton.setupDefaultStyle(withTitle: "Sign In")
+            signInButton.style.normal().localized(text: "Sign In")
         }
     }
     
     @IBOutlet weak var registerButton: UIButton! {
         didSet {
-            registerButton.setupDefaultStyle(withTitle: "Register")
+            registerButton.style.normal().localized(text: "Register")
         }
     }
     
     @IBOutlet weak var collectionButton: UIButton! {
         didSet {
-            collectionButton.setupDefaultStyle(withTitle: "Collection View Sample")
+            collectionButton.style.normal().localized(text: "Collection View Sample")
         }
     }
     
     @IBOutlet weak var tableViewButton: UIButton! {
         didSet {
-            tableViewButton.setupDefaultStyle(withTitle: "Table View Sample")
+            tableViewButton.style.normal().localized(text: "Table View Sample")
         }
     }
     

@@ -14,7 +14,7 @@ class UploadTableViewCell: UITableViewCell {
     
     @IBOutlet weak var documentTypeLabel: UILabel! {
         didSet {
-            documentTypeLabel.style = .largeHeaderText
+            documentTypeLabel.style.largeRegular().black()
             documentTypeLabel.numberOfLines = 2
             documentTypeLabel.textAlignment = .center
         }
@@ -22,7 +22,7 @@ class UploadTableViewCell: UITableViewCell {
     
     @IBOutlet weak var documentNameLabel: UILabel! {
         didSet {
-            documentNameLabel.style = .smallHeaderText
+            documentNameLabel.style.smallRegular().black() // = .smallHeaderText
             documentNameLabel.lineBreakMode = .byTruncatingHead
         }
     }
@@ -35,7 +35,7 @@ class UploadTableViewCell: UITableViewCell {
     
     @IBOutlet weak var uploadButton: UIButton! {
         didSet {
-            uploadButton.setupDefaultStyle(withTitle: "Upload")
+            uploadButton.style.normal().localized(text: "Upload")
         }
     }
     

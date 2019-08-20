@@ -23,7 +23,7 @@ enum WebServiceError { // handle network and authentication error only
     case httpError(errorCode: Int)
     case moyaError(error: MoyaError)
     
-    var description: String {
+    var localizedDescription: String {
         switch self {
         case .authenticationError(let message):
             if let message = message {

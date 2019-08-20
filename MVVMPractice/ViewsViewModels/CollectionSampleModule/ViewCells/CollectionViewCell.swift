@@ -14,25 +14,24 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var idHeaderLabel: UILabel! {
         didSet {
-            idHeaderLabel.style = .largeHeaderText
-            idHeaderLabel.text = "ID:" // Localize Here
+            idHeaderLabel.style.largeRegular().darkGray().localized(text: "ID:")
         }
     }
     
     @IBOutlet weak var idLabel: UILabel! {
         didSet {
-            idLabel.style = .largeText
+            idLabel.style.largeRegular().black()
         }
     }
     
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
-            nameLabel.style = .smallText
+            nameLabel.style.smallRegular().black()
         }
     }
     @IBOutlet weak var emailLabel: UILabel! {
         didSet {
-            emailLabel.style = .smallText
+            emailLabel.style.smallRegular().black()
         }
     }
 

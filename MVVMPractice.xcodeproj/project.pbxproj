@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A961C5C23053FE200FC9402 /* ObservableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A961C5B23053FE200FC9402 /* ObservableExtension.swift */; };
+		6AB89F38230BD72000712501 /* StyleableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB89F37230BD72000712501 /* StyleableExtension.swift */; };
 		6AC2403E22F93D4600C9561D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC2403D22F93D4600C9561D /* AppDelegate.swift */; };
 		6AC2404322F93D4600C9561D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC2404122F93D4600C9561D /* Main.storyboard */; };
 		6AC2404522F93D4700C9561D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC2404422F93D4700C9561D /* Assets.xcassets */; };
@@ -111,6 +112,7 @@
 		2B9F22409C555A0AB52111A1 /* Pods-MVVMPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPracticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPracticeUITests/Pods-MVVMPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		52924BECE98D32A05AA23DC5 /* Pods_MVVMPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A961C5B23053FE200FC9402 /* ObservableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableExtension.swift; sourceTree = "<group>"; };
+		6AB89F37230BD72000712501 /* StyleableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleableExtension.swift; sourceTree = "<group>"; };
 		6AC2403A22F93D4600C9561D /* MVVMPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC2403D22F93D4600C9561D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AC2404222F93D4600C9561D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				6AC2407622F940D200C9561D /* CustomViews */,
+				6AB89F37230BD72000712501 /* StyleableExtension.swift */,
 				6AC240AE22F942FD00C9561D /* UIButtonExtension.swift */,
 				6AC240B022F942FD00C9561D /* UIColorExtension.swift */,
 				6AC240AD22F942FD00C9561D /* UIFontExtension.swift */,
@@ -837,6 +840,7 @@
 				6AC240C522F9431700C9561D /* TableViewController.swift in Sources */,
 				6AC240B922F942FD00C9561D /* UIImageViewExtension.swift in Sources */,
 				6AC240A622F942EF00C9561D /* NSObjectExtension.swift in Sources */,
+				6AB89F38230BD72000712501 /* StyleableExtension.swift in Sources */,
 				6AC240A822F942EF00C9561D /* StringExtension.swift in Sources */,
 				6AC240A522F942EF00C9561D /* Storyboarded.swift in Sources */,
 			);
