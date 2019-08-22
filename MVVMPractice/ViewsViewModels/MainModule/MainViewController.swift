@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: MainCoordinator!
     
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
@@ -36,19 +36,19 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func signInButtonButton(_ sender: Any) {
-        coordinator?.gotoSignInViewController()
+        coordinator.gotoSignInViewController()
     }
     
     @IBAction func registerButtonButton(_ sender: Any) {
-        coordinator?.gotoRegisterViewController()
+        coordinator.gotoRegisterViewController()
     }
     
     @IBAction func collectionButton(_ sender: Any) {
-        coordinator?.gotoCollectionViewController()
+        coordinator.gotoCollectionViewController()
     }
 
     @IBAction func tableViewButtonDidTap(_ sender: Any) {
-        coordinator?.gotoTableViewViewController()
+        coordinator.gotoTableViewViewController()
     }
 
 }

@@ -11,17 +11,20 @@ import RxSwift
 
 class CollectionViewController: UIViewController {
     
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: MainCoordinator!
     
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var emptyDataView: UIView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
-            collectionView.register(UINib.init(nibName: CollectionViewCell.string, bundle: Bundle.main), forCellWithReuseIdentifier: CollectionViewCell.string)
+            // every property of view sould be here to make everything clear
+            // Storyboard, Xib file is only for layout.
+            collectionView.register(CollectionViewCell.string)
             collectionView.alwaysBounceVertical = true
             collectionView.addSubview(refresher)
             collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
             collectionView.dataSource = self
+            collectionView.allowsSelection = true
         }
     }
     
@@ -63,8 +66,12 @@ class CollectionViewController: UIViewController {
     }
     
     func setupReactive() {
+        // I'm not using bind for list users because i think it not necessary
+        // Make everything as simple as possible
+        // Delegate make other developers feel "safe" when they maintenance your code.
+        // if you familiar with RxDataSources you can use for fully suppord multiple sections type, multiple cells type
         viewModel.users.subscribe(onNext: { users in
-            self.isEmptyData = (users.count == 0)
+            self.isEmptyData = users.isEmpty
             self.collectionView.reloadData()
         }).disposed(by: disposeBag)
         viewModel.errorMessage.subscribe(onNext: { message in
@@ -77,6 +84,12 @@ class CollectionViewController: UIViewController {
             if !isLoading {
                 self.refresher.endRefreshing()
             }
+        }).disposed(by: disposeBag)
+        collectionView.rx.itemSelected.subscribe(onNext: { indexPath in
+            self.viewModel.selectItemAt(indexPath: indexPath)
+        }).disposed(by: disposeBag)
+        viewModel.selectedUser.asObservable().ignoreNil().subscribe(onNext: { _ in
+            self.coordinator.gotoCollectionViewDetailViewController(viewModel: self.viewModel)
         }).disposed(by: disposeBag)
     }
 }

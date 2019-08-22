@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A359DA3230D4329002C2546 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A359DA2230D4329002C2546 /* UITableViewExtension.swift */; };
 		6A961C5C23053FE200FC9402 /* ObservableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A961C5B23053FE200FC9402 /* ObservableExtension.swift */; };
 		6AB89F38230BD72000712501 /* StyleableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB89F37230BD72000712501 /* StyleableExtension.swift */; };
 		6AC2403E22F93D4600C9561D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC2403D22F93D4600C9561D /* AppDelegate.swift */; };
@@ -85,6 +86,8 @@
 		6AC2410622F9436D00C9561D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC2410422F9436D00C9561D /* MainCoordinator.swift */; };
 		6AC2410822F9448C00C9561D /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AC2410722F9448C00C9561D /* dummy.json */; };
 		6AC2410A22FAE08000C9561D /* PasswordLayoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC2410922FAE08000C9561D /* PasswordLayoutModel.swift */; };
+		6AC512F1230E7171009D24ED /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC512F0230E7171009D24ED /* CollectionDetailViewController.swift */; };
+		6AC512F3230E7CA2009D24ED /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC512F2230E7CA2009D24ED /* ArrayExtension.swift */; };
 		8EFE3F01D168C41075C3439F /* Pods_MVVMPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A51F102791792C1375179B /* Pods_MVVMPracticeUITests.framework */; };
 		BA653A0C17309211FEC9F57B /* Pods_MVVMPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C632A00FCE4413CAF8546A2C /* Pods_MVVMPracticeTests.framework */; };
 		FBFF847353660506C497FF2C /* Pods_MVVMPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52924BECE98D32A05AA23DC5 /* Pods_MVVMPractice.framework */; };
@@ -111,6 +114,7 @@
 		08891122A4BC481EC482E46D /* Pods-MVVMPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPracticeTests/Pods-MVVMPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B9F22409C555A0AB52111A1 /* Pods-MVVMPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPracticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPracticeUITests/Pods-MVVMPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		52924BECE98D32A05AA23DC5 /* Pods_MVVMPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A359DA2230D4329002C2546 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		6A961C5B23053FE200FC9402 /* ObservableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableExtension.swift; sourceTree = "<group>"; };
 		6AB89F37230BD72000712501 /* StyleableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleableExtension.swift; sourceTree = "<group>"; };
 		6AC2403A22F93D4600C9561D /* MVVMPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +199,8 @@
 		6AC2410422F9436D00C9561D /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		6AC2410722F9448C00C9561D /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 		6AC2410922FAE08000C9561D /* PasswordLayoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLayoutModel.swift; sourceTree = "<group>"; };
+		6AC512F0230E7171009D24ED /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
+		6AC512F2230E7CA2009D24ED /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		7BB41D5DF159A195AE4052C3 /* Pods-MVVMPracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPracticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPracticeTests/Pods-MVVMPracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		85CFA58581FB4C2070D6BC49 /* Pods-MVVMPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPractice/Pods-MVVMPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		A182E5E2DFEC152F83DCCFF7 /* Pods-MVVMPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPractice.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPractice/Pods-MVVMPractice.release.xcconfig"; sourceTree = "<group>"; };
@@ -391,6 +397,7 @@
 			children = (
 				6AC2407322F9409200C9561D /* ViewCells */,
 				6AC240D422F9432D00C9561D /* CollectionViewController.swift */,
+				6AC512F0230E7171009D24ED /* CollectionDetailViewController.swift */,
 				6AC240D522F9432D00C9561D /* CollectionFlowLayout.swift */,
 				6AC240D322F9432D00C9561D /* CollectionViewModel.swift */,
 			);
@@ -424,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				6AC2407622F940D200C9561D /* CustomViews */,
+				6A359DA2230D4329002C2546 /* UITableViewExtension.swift */,
 				6AB89F37230BD72000712501 /* StyleableExtension.swift */,
 				6AC240AE22F942FD00C9561D /* UIButtonExtension.swift */,
 				6AC240B022F942FD00C9561D /* UIColorExtension.swift */,
@@ -457,6 +465,7 @@
 				6AC240A122F942EF00C9561D /* Storyboarded.swift */,
 				6AC240A422F942EF00C9561D /* StringExtension.swift */,
 				6A961C5B23053FE200FC9402 /* ObservableExtension.swift */,
+				6AC512F2230E7CA2009D24ED /* ArrayExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -801,6 +810,7 @@
 				6AC240B622F942FD00C9561D /* UIViewControllerExtension.swift in Sources */,
 				6AC240D222F9432400C9561D /* TableViewCell.swift in Sources */,
 				6AC240F322F9435700C9561D /* DocumentTypeTableViewCell.swift in Sources */,
+				6AC512F3230E7CA2009D24ED /* ArrayExtension.swift in Sources */,
 				6AC240D822F9432D00C9561D /* CollectionFlowLayout.swift in Sources */,
 				6AC240E522F9435000C9561D /* RegisterViewModel.swift in Sources */,
 				6AC240BA22F942FD00C9561D /* UIColorExtension.swift in Sources */,
@@ -823,6 +833,7 @@
 				6AC240CF22F9432400C9561D /* ImageCollectionViewCell.swift in Sources */,
 				6AC240D622F9432D00C9561D /* CollectionViewModel.swift in Sources */,
 				6AC2410122F9436700C9561D /* ErrorMessageModel.swift in Sources */,
+				6A359DA3230D4329002C2546 /* UITableViewExtension.swift in Sources */,
 				6AC240FE22F9436700C9561D /* UsersModel.swift in Sources */,
 				6AC240A022F942E700C9561D /* UsersService.swift in Sources */,
 				6AC240A722F942EF00C9561D /* Configuration.swift in Sources */,
@@ -839,6 +850,7 @@
 				6AC240FD22F9436700C9561D /* ItemModel.swift in Sources */,
 				6AC240C522F9431700C9561D /* TableViewController.swift in Sources */,
 				6AC240B922F942FD00C9561D /* UIImageViewExtension.swift in Sources */,
+				6AC512F1230E7171009D24ED /* CollectionDetailViewController.swift in Sources */,
 				6AC240A622F942EF00C9561D /* NSObjectExtension.swift in Sources */,
 				6AB89F38230BD72000712501 /* StyleableExtension.swift in Sources */,
 				6AC240A822F942EF00C9561D /* StringExtension.swift in Sources */,

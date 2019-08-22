@@ -10,11 +10,11 @@ import UIKit
 import RxSwift
 
 class TableViewController: UIViewController {
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: MainCoordinator!
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(UINib.init(nibName: TableViewCell.string, bundle: Bundle.main), forCellReuseIdentifier: TableViewCell.string)
+            tableView.register(TableViewCell.string)
             tableView.rowHeight = UITableView.automaticDimension
             tableView.estimatedRowHeight = 300
             tableView.delegate = self

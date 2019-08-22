@@ -13,12 +13,9 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(UINib.init(nibName: DocumentTypeTableViewCell.string, bundle: Bundle.main),
-                               forCellReuseIdentifier: DocumentTypeTableViewCell.string)
-            tableView.register(UINib.init(nibName: TextTableViewCell.string, bundle: Bundle.main),
-                               forCellReuseIdentifier: TextTableViewCell.string)
-            tableView.register(UINib.init(nibName: UploadTableViewCell.string, bundle: Bundle.main),
-                               forCellReuseIdentifier: UploadTableViewCell.string)
+            tableView.register(DocumentTypeTableViewCell.string,
+                               TextTableViewCell.string,
+                               UploadTableViewCell.string)
             tableView.tableFooterView = UIView()
             tableView.separatorStyle = .none
             tableView.allowsSelection = false
@@ -28,7 +25,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton! {
         didSet {
-            submitButton.style.localized(text: "SUBMIT")
+            submitButton.style.normal().localized(text: "SUBMIT")
         }
     }
     
@@ -77,15 +74,15 @@ extension RegisterViewController: UITableViewDataSource {
         let type = profileInputs[indexPath.row]
         switch type {
         case .documentType(let isSenior):
-            let cell = tableView.dequeueReusableCell(withIdentifier: DocumentTypeTableViewCell.string, for: indexPath) as! DocumentTypeTableViewCell
+            let cell: DocumentTypeTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.configure(isSenior: isSenior)
             return cell
         case .inputText(let viewModel):
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.string, for: indexPath) as! TextTableViewCell
+            let cell: TextTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.configure(viewModel: viewModel)
             return cell
         case .document(let type):
-            let cell = tableView.dequeueReusableCell(withIdentifier: UploadTableViewCell.string, for: indexPath) as! UploadTableViewCell
+            let cell: UploadTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.configure(uploadModel: type, selectedDocument: viewModel.selectedDocument)
             return cell
         }

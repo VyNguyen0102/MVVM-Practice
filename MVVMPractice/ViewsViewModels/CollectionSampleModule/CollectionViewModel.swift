@@ -13,6 +13,7 @@ import Moya
 class CollectionViewModel {
     
     let users: BehaviorRelay<[User]> =  BehaviorRelay<[User]>(value: [])
+    let selectedUser: BehaviorRelay<User?> = BehaviorRelay<User?>(value: nil)
     let isReloading: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     let isLoading: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     
@@ -50,5 +51,9 @@ class CollectionViewModel {
             self.isReloading.accept(false)
             self.isLoading.accept(false)
         }
+    }
+    
+    func selectItemAt(indexPath: IndexPath) {
+        selectedUser.accept(users.value[indexPath.row])
     }
 }

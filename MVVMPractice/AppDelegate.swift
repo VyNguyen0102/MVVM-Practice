@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var coordinator: MainCoordinator?
+    var coordinator: MainCoordinator!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let navController = UINavigationController()
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coordinator = MainCoordinator(navigationController: navController)
         
         // tell the coordinator to take over control
-        coordinator?.start()
+        coordinator.start()
         
         // create a basic UIWindow and activate it
         window = UIWindow(frame: UIScreen.main.bounds)

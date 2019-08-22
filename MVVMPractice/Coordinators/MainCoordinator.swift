@@ -37,6 +37,15 @@ class MainCoordinator: Coordinator {
     
     func gotoCollectionViewController() {
         let vc: CollectionViewController = storyboard.instantiateViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func gotoCollectionViewDetailViewController(viewModel: CollectionViewModel) {
+        let vc: CollectionDetailViewController = storyboard.instantiateViewController()
+        // Collection and detail sharing same viewModel
+        // Don't forget to set detail's view model to WEAK reference
+        vc.viewModel = viewModel
         navigationController.pushViewController(vc, animated: true)
     }
     
