@@ -64,3 +64,16 @@ class FavoriteCheckBox: UIButton {
     }
 }
 ```
+
+## Register and dequeue Reusable Cell easier.
+
+register multiple cells
+```swift
+    tableView.register(DocumentTypeTableViewCell.string,
+                               TextTableViewCell.string,
+                               UploadTableViewCell.string)
+```
+dequeue cell
+```swift
+    let cell: DocumentTypeTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+```
