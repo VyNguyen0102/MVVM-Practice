@@ -56,7 +56,7 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.string, for: indexPath) as! TableViewCell
+        let cell: TableViewCell = tableView.dequeueReusableCell(for: indexPath)
         let item = viewModel.items.value[indexPath.row]
         let isBookmarked = viewModel.bookmarkList.value.contains(item.id)
         cell.configure(item: item, isExpanded: indexPath.row == self.selectedRow,isBookmark: isBookmarked)

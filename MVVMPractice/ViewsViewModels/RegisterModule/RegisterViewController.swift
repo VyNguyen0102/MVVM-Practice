@@ -44,7 +44,10 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        let start = CFAbsoluteTimeGetCurrent()
         setupReactive()
+        let diff = CFAbsoluteTimeGetCurrent() - start
+        print("Took \(diff) seconds")
     }
     
     func setupReactive()  {

@@ -100,7 +100,7 @@ extension CollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.string, for: indexPath) as! CollectionViewCell
+        let cell: CollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         let user = viewModel.users.value[indexPath.row]
         cell.configure(user: user)
         if indexPath.row + Configuration.loadMoreOffset >= viewModel.users.value.count {

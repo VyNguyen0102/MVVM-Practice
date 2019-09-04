@@ -15,7 +15,7 @@ class FavoriteCheckBox: UIButton {
     
     // Bool property
     var isChecked: Bool = false {
-        didSet{
+        didSet {
             self.setImage( isChecked ? #imageLiteral(resourceName: "IconFavouritesActive") : #imageLiteral(resourceName: "IconFavouritesInactive"), for: UIControl.State.normal)
         }
     }
@@ -28,7 +28,7 @@ class FavoriteCheckBox: UIButton {
     }
     
     func bind(value: BehaviorRelay<Bool>) -> Disposable {
-        return isCheckedObservable.bind(to: value)
+        return isCheckedObservable.distinctUntilChanged().bind(to: value)
     }
     
     override func awakeFromNib() {

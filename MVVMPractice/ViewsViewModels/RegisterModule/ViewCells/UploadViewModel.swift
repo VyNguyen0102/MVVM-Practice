@@ -20,6 +20,7 @@ class UploadViewModel {
     }
     
     func selectDocument(info: [UIImagePickerController.InfoKey : Any]) {
+        // you can get uiimage or image name... from document info.
         if let url = info[UIImagePickerController.InfoKey.imageURL] as? NSURL {
             documentName.accept(url.absoluteString ?? "")
         }

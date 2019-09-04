@@ -9,7 +9,7 @@
 import UIKit
 
 extension UITableView {
-    
+    // Register cell with class name identifier
     func register(_ nibNames: String...) {
         nibNames.forEach { nibName in
             self.register(UINib.init(nibName: nibName, bundle: Bundle.main),
@@ -19,12 +19,18 @@ extension UITableView {
     
     func dequeueReusableCell<Cell: UITableViewCell>(for indexPath: IndexPath) -> Cell {
         let identifier = Cell.string
-        return self.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! Cell
+        guard let cell = self.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? Cell else {
+            fatalError("You must register cell with class name identifier!")
+        }
+        return cell
     }
     
     func dequeueReusableCell<Cell: UITableViewCell>() -> Cell {
         let identifier = Cell.string
-        return self.dequeueReusableCell(withIdentifier: identifier) as! Cell
+        guard let cell = self.dequeueReusableCell(withIdentifier: identifier) as? Cell else {
+            fatalError("You must register cell with class name identifier!")
+        }
+        return cell
     }
 }
 
@@ -38,6 +44,9 @@ extension UICollectionView {
     
     func dequeueReusableCell<Cell: UICollectionViewCell>(for indexPath: IndexPath) -> Cell {
         let identifier = Cell.string
-        return self.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! Cell
+        guard let cell = self.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Cell else {
+            fatalError("You must register cell with class name identifier!")
+        }
+        return cell
     }
 }
