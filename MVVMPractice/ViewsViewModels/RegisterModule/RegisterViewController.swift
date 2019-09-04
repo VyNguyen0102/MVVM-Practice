@@ -29,10 +29,11 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    let imagePicker: UIImagePickerController = {
+    lazy var imagePicker: UIImagePickerController = {
         var imagePicker = UIImagePickerController()
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = false
+        imagePicker.delegate = self
         return imagePicker
     }()
     
@@ -43,11 +44,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePicker.delegate = self
-        let start = CFAbsoluteTimeGetCurrent()
         setupReactive()
-        let diff = CFAbsoluteTimeGetCurrent() - start
-        print("Took \(diff) seconds")
     }
     
     func setupReactive()  {
