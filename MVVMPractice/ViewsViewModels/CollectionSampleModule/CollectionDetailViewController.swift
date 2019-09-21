@@ -21,7 +21,9 @@ class CollectionDetailViewController: UIViewController {
             emailLabel.style.mediumRegular().black()
         }
     }
-    
+
+    @IBOutlet weak var favoriteButton: FavoriteCheckBox!
+
     weak var viewModel: CollectionViewModel!
     let disposeBag = DisposeBag()
     
@@ -37,6 +39,8 @@ class CollectionDetailViewController: UIViewController {
     }
     
     func configure(user: User) {
+        favoriteButton.isChecked = user.isFavorite.value
+        favoriteButton.bind(value: user.isFavorite).disposed(by: disposeBag)
         avatarImageView.loadAvatarUrlString(urlString: user.avatar)
         nameLabel.text = user.name
         emailLabel.text = user.email

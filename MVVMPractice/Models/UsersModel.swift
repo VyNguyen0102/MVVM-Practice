@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxRelay
 
 struct User: Codable {
     var avatar: String?
@@ -14,6 +15,7 @@ struct User: Codable {
     var firstName: String?
     var id: Int?
     var lastName: String?
+    let isFavorite: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     
     var name: String {
         return "\(firstName ?? "") \(lastName ?? "")"

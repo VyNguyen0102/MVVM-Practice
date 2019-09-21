@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CollectionViewCell: UICollectionViewCell {
 
@@ -35,7 +36,22 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
 
+    @IBOutlet weak var favoriteButton: FavoriteCheckBox!
+
+    var disposeBag = DisposeBag()
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+
     func configure(user: User) {
+        user.isFavorite.distinctUntilChanged().subscribe(onNext: { isFavorite in
+            if self.favoriteButton.isChecked != isFavorite {
+                self.favoriteButton.isChecked = isFavorite
+            }
+        }).disposed(by: disposeBag)
+        favoriteButton.bind(value: user.isFavorite).disposed(by: disposeBag)
         userImageView.loadAvatarUrlString(urlString: user.avatar)
         idLabel.text = user.id.toString()
         nameLabel.text = user.name
