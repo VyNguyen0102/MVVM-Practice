@@ -11,34 +11,34 @@ import RxSwift
 
 class CollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet private weak var userImageView: UIImageView!
     
-    @IBOutlet weak var idHeaderLabel: UILabel! {
+    @IBOutlet private weak var idHeaderLabel: UILabel! {
         didSet {
             idHeaderLabel.style.largeRegular().darkGray().localized(text: "ID:")
         }
     }
     
-    @IBOutlet weak var idLabel: UILabel! {
+    @IBOutlet private weak var idLabel: UILabel! {
         didSet {
             idLabel.style.largeRegular().black()
         }
     }
     
-    @IBOutlet weak var nameLabel: UILabel! {
+    @IBOutlet private weak var nameLabel: UILabel! {
         didSet {
             nameLabel.style.smallRegular().black()
         }
     }
-    @IBOutlet weak var emailLabel: UILabel! {
+    @IBOutlet private weak var emailLabel: UILabel! {
         didSet {
             emailLabel.style.smallRegular().black()
         }
     }
 
-    @IBOutlet weak var favoriteButton: FavoriteCheckBox!
+    @IBOutlet private weak var favoriteButton: FavoriteCheckBox!
 
-    var disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
 
     override func prepareForReuse() {
         super.prepareForReuse()

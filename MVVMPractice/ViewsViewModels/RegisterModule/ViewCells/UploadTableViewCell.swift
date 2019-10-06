@@ -12,7 +12,7 @@ import RxSwift
 
 class UploadTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var documentTypeLabel: UILabel! {
+    @IBOutlet private weak var documentTypeLabel: UILabel! {
         didSet {
             documentTypeLabel.style.largeRegular().black()
             documentTypeLabel.numberOfLines = 2
@@ -20,26 +20,26 @@ class UploadTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var documentNameLabel: UILabel! {
+    @IBOutlet private weak var documentNameLabel: UILabel! {
         didSet {
             documentNameLabel.style.smallRegular().black() // = .smallHeaderText
             documentNameLabel.lineBreakMode = .byTruncatingHead
         }
     }
     
-    @IBOutlet weak var uploadProgressView: UIProgressView! {
+    @IBOutlet private weak var uploadProgressView: UIProgressView! {
         didSet {
             uploadProgressView.tintColor = UIColor.appGreen
         }
     }
     
-    @IBOutlet weak var uploadButton: UIButton! {
+    @IBOutlet private weak var uploadButton: UIButton! {
         didSet {
             uploadButton.style.normal().localized(text: "Upload")
         }
     }
     
-    var selectedDocument: Observable<UploadViewModel?> {
+    private var selectedDocument: Observable<UploadViewModel?> {
         return uploadButton.rx.tap.asObservable().map { _ in
             return self.uploadModel
         }

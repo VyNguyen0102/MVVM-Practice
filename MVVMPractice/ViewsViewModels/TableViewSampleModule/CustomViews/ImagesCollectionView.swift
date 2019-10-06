@@ -10,7 +10,7 @@ import UIKit
 
 class ImagesCollectionView: BaseCustomView {
     
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(UINib.init(nibName: ImageCollectionViewCell.string, bundle: Bundle.main),
                                     forCellWithReuseIdentifier: ImageCollectionViewCell.string)

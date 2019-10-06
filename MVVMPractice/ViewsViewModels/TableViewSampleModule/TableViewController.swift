@@ -12,7 +12,7 @@ import RxSwift
 class TableViewController: UIViewController {
     weak var coordinator: MainCoordinator!
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(TableViewCell.string)
             tableView.rowHeight = UITableView.automaticDimension
@@ -22,10 +22,10 @@ class TableViewController: UIViewController {
         }
     }
     
-    let viewModel = TableViewModel()
-    let disposeBag = DisposeBag()
+    private let viewModel = TableViewModel()
+    private let disposeBag = DisposeBag()
     
-    var selectedRow: Int = -1
+    private var selectedRow: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class TableViewController: UIViewController {
         viewModel.loadData()
     }
     
-    func setupReactive()  {
+    private func setupReactive()  {
         viewModel.items.subscribe(onNext: { _ in
             self.tableView.reloadData()
         }).disposed(by: disposeBag)

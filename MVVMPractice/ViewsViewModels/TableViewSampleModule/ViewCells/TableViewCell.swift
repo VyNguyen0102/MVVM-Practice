@@ -14,27 +14,27 @@ protocol TableViewCellDelegate: class {
 }
 
 class TableViewCell: UITableViewCell {
-    @IBOutlet weak var bookmarkButton: FavoriteCheckBox!
-    @IBOutlet weak var titleLabel: UILabel! {
+    @IBOutlet private weak var bookmarkButton: FavoriteCheckBox!
+    @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
             titleLabel.style.largeRegular().black()
         }
     }
-    @IBOutlet weak var emptyImageView: UIView!
-    @IBOutlet weak var descriptionLabel: UILabel! {
+    @IBOutlet private weak var emptyImageView: UIView!
+    @IBOutlet private weak var descriptionLabel: UILabel! {
         didSet {
             descriptionLabel.style.mediumRegular().darkGray()
         }
     }
-    @IBOutlet weak var expandedContainerView: UIStackView!
-    @IBOutlet weak var imagesCollectionView: ImagesCollectionView!
-    @IBOutlet weak var imagesCollectionViewContainer: UIView!
+    @IBOutlet private weak var expandedContainerView: UIStackView!
+    @IBOutlet private weak var imagesCollectionView: ImagesCollectionView!
+    @IBOutlet private weak var imagesCollectionViewContainer: UIView!
     
     var disposeBag = DisposeBag()
     weak var delegate: TableViewCellDelegate?
     var item: Item?
     
-    @IBOutlet weak var indicatiorImageView: UIImageView!
+    @IBOutlet private weak var indicatiorImageView: UIImageView!
     var isNoImages: Bool = true {
         didSet {
             emptyImageView.isHidden = !isNoImages

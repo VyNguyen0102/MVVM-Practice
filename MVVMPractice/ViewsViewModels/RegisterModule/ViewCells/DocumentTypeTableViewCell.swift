@@ -12,7 +12,7 @@ import RxSwift
 
 class DocumentTypeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var documentTypeSegmentedControl: UISegmentedControl! {
+    @IBOutlet private weak var documentTypeSegmentedControl: UISegmentedControl! {
         didSet {
             documentTypeSegmentedControl.tintColor = UIColor.appGreen
             documentTypeSegmentedControl.setTitle("Senior", forSegmentAt: 0)

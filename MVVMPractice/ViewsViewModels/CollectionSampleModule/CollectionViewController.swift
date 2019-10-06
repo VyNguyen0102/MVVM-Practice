@@ -13,9 +13,9 @@ class CollectionViewController: UIViewController {
     
     weak var coordinator: MainCoordinator!
     
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var emptyDataView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var emptyDataView: UIView!
+    @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             // every property of view sould be here to make everything clear
             // Storyboard, Xib file is only for layout.
@@ -28,24 +28,24 @@ class CollectionViewController: UIViewController {
         }
     }
     
-    let refresher: UIRefreshControl = {
+    private let refresher: UIRefreshControl = {
         let refresher = UIRefreshControl()
         refresher.tintColor = UIColor.red
         refresher.addTarget(self, action: #selector(refeshData), for: .valueChanged)
         return refresher
     }()
     
-    let viewModel = CollectionViewModel()
-    let disposeBag = DisposeBag()
+    private let viewModel = CollectionViewModel()
+    private let disposeBag = DisposeBag()
     
-    var isViewLoading: Bool = true {
+    private var isViewLoading: Bool = true {
         didSet {
             // need to replace by beautiful loading
             loadingView.isHidden = !isViewLoading
         }
     }
     
-    var isEmptyData: Bool = true {
+    private var isEmptyData: Bool = true {
         didSet {
             emptyDataView.isHidden = !isEmptyData
         }
@@ -53,19 +53,19 @@ class CollectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupReactive()
+        setupReactive()
         viewModel.getData(isReload: true)
     }
     
-    @IBAction func reloadButtonDidTap(_ sender: Any) {
+    @IBAction private func reloadButtonDidTap(_ sender: Any) {
         refeshData()
     }
     
-    @objc func refeshData() {
+    @objc private func refeshData() {
         viewModel.getData(isReload: true)
     }
     
-    func setupReactive() {
+    private func setupReactive() {
         // I'm not using bind for list users because i think it not necessary
         // Make everything as simple as possible
         // Delegate make other developers feel "safe" when they maintenance your code.

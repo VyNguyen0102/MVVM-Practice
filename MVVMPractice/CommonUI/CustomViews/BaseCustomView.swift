@@ -30,7 +30,7 @@ class BaseCustomView: UIView {
         return classIdentifier()
     }
     
-    func load() {
+    private func load() {
         self.backgroundColor = UIColor.clear
         let bundle = Bundle.init(for:BaseCustomView.self)
         let nib = UINib(nibName: getNibName(), bundle: bundle)
@@ -44,7 +44,8 @@ class BaseCustomView: UIView {
     func loadingViewComplete(childView: UIView) {
         
     }
-    func addViewOverlay(childView: UIView, toView parentView: UIView) {
+
+    private func addViewOverlay(childView: UIView, toView parentView: UIView) {
         parentView.addSubview(childView)
         // Use bounds not frame or it'll be offset
         if frame == CGRect.zero {
@@ -54,6 +55,7 @@ class BaseCustomView: UIView {
         }
         BaseCustomView.addConstrainOverlay(childView: childView, toView: parentView)
     }
+    
     static func addConstrainOverlay(childView: UIView, toView parentView: UIView) {
         childView.bounds = parentView.bounds // use for non auto layout project.
         childView.translatesAutoresizingMaskIntoConstraints = false

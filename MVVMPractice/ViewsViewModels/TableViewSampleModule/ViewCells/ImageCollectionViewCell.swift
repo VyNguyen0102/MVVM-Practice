@@ -10,7 +10,7 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     func configure(imageUrl: String) {
         imageView.loadAvatarUrlString(urlString: imageUrl)

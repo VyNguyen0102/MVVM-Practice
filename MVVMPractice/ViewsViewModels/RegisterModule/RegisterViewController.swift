@@ -11,7 +11,7 @@ import RxSwift
 
 class RegisterViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(DocumentTypeTableViewCell.string,
                                TextTableViewCell.string,
@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var submitButton: UIButton! {
+    @IBOutlet private weak var submitButton: UIButton! {
         didSet {
             submitButton.style.normal().localized(text: "SUBMIT")
         }
@@ -37,8 +37,8 @@ class RegisterViewController: UIViewController {
         return imagePicker
     }()
     
-    let viewModel = RegisterViewModel()
-    let disposeBag = DisposeBag()
+    private let viewModel = RegisterViewModel()
+    private let disposeBag = DisposeBag()
     
     var profileInputs: [ProfileInputType] = []
     
@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController {
         setupReactive()
     }
     
-    func setupReactive()  {
+    private func setupReactive()  {
         viewModel.profileInputs.subscribe(onNext: { profileInputs in
             self.profileInputs = profileInputs
             self.tableView.reloadData()
@@ -60,7 +60,7 @@ class RegisterViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
-    @IBAction func submitButtonDidTap(_ sender: Any) {
+    @IBAction private func submitButtonDidTap(_ sender: Any) {
         viewModel.submit()
     }
 }

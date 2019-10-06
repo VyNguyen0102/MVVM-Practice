@@ -12,7 +12,7 @@ import RxCocoa
 
 class TextTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var textField: CustomTextField!
+    @IBOutlet private weak var textField: CustomTextField!
     private var disposeBag: DisposeBag = DisposeBag()
     
     override func prepareForReuse() {

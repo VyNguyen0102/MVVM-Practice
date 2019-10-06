@@ -12,15 +12,15 @@ import RxCocoa
 
 class CustomTextField: BaseCustomView {
     
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet private weak var textField: UITextField!
     
-    @IBOutlet weak var mandatoryLabel: UILabel! {
+    @IBOutlet private weak var mandatoryLabel: UILabel! {
         didSet {
             mandatoryLabel.style.smallRegular().red()
         }
     }
     
-    @IBOutlet weak var errorMessageLabel: UILabel! {
+    @IBOutlet private weak var errorMessageLabel: UILabel! {
         didSet {
             errorMessageLabel.style.smallRegular().red()
             errorMessageLabel.text = nil

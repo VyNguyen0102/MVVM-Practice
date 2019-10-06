@@ -12,24 +12,24 @@ import RxCocoa
 
 class SignInViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: CustomTextField!
-    @IBOutlet weak var passwordTextField: CustomTextField!
+    @IBOutlet private weak var emailTextField: CustomTextField!
+    @IBOutlet private weak var passwordTextField: CustomTextField!
     
-    @IBOutlet weak var signInButton: UIButton! {
+    @IBOutlet private weak var signInButton: UIButton! {
         didSet {
             signInButton.style.normal().localized(text: "Sign In")
         }
     }
     
-    let viewModel = SignInViewModel()
-    let disposeBag = DisposeBag()
+    fileprivate let viewModel = SignInViewModel()
+    fileprivate let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupReactive()
     }
     
-    func setupReactive() {
+    private func setupReactive() {
         emailTextField.configure(viewModel: viewModel.email, disposeBag: disposeBag)
         passwordTextField.configure(viewModel: viewModel.password, disposeBag: disposeBag)
         viewModel.isValidSignIn.bind(to: signInButton.rx.isEnabled).disposed(by: disposeBag)
@@ -38,7 +38,7 @@ class SignInViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
-    @IBAction func signInButtonDidTap(_ sender: Any) {
+    @IBAction private func signInButtonDidTap(_ sender: Any) {
         viewModel.signIn()
     }
     
