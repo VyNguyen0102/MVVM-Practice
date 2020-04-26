@@ -16,7 +16,14 @@ class MainViewController: UIViewController {
             signInButton.style.normal().localized(text: "Sign In")
         }
     }
-    
+
+    @IBOutlet weak var premiumSignInButton: UIButton! {
+        didSet {
+            premiumSignInButton.style.round().orangeWhite().localized(text: " Premium Sign In")
+        }
+    }
+
+
     @IBOutlet private weak var registerButton: UIButton! {
         didSet {
             registerButton.style.normal().localized(text: "Register")
@@ -35,15 +42,19 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction private func signInButtonButton(_ sender: Any) {
+    @IBAction private func signInButtonDidTap(_ sender: Any) {
         coordinator.gotoSignInViewController()
     }
-    
-    @IBAction private func registerButtonButton(_ sender: Any) {
+
+    @IBAction func premiumSignInDidTap(_ sender: Any) {
+        coordinator.gotoPremiumSignInViewController()
+    }
+
+    @IBAction private func registerButtonDidTap(_ sender: Any) {
         coordinator.gotoRegisterViewController()
     }
     
-    @IBAction private func collectionButton(_ sender: Any) {
+    @IBAction private func collectionButtonDidTap(_ sender: Any) {
         coordinator.gotoCollectionViewController()
     }
 

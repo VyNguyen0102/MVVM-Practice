@@ -24,6 +24,10 @@ extension UIColor {
     class var appGreen: UIColor {
         return #colorLiteral(red: 0.4832904339, green: 0.7766446471, blue: 0.8195533156, alpha: 1)
     }
+
+    class var appBlue: UIColor {
+        return #colorLiteral(red: 0.1262998879, green: 0.351267904, blue: 0.7145659328, alpha: 1)
+    }
     
     class var appTextGray: UIColor {
         return #colorLiteral(red: 0.681815207, green: 0.6979247928, blue: 0.7103747725, alpha: 1)
@@ -39,5 +43,15 @@ extension UIColor {
     
     class var appRed: UIColor {
         return UIColor.red
+    }
+
+    class var buttonOrage: UIColor {
+        return #colorLiteral(red: 0.9807935357, green: 0.3586043119, blue: 0.2439375222, alpha: 1)
+    }
+    class var buttonWhite: UIColor {
+        return #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+    }
+    class var buttonBlack: UIColor {
+        return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
 }

@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39C8A0AF2455895C003AEB0A /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8A0AD2455895C003AEB0A /* ImageTextField.swift */; };
+		39C8A0B024558CDB003AEB0A /* ImageTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C8A0AE2455895C003AEB0A /* ImageTextField.xib */; };
+		39C8A0B2245598E9003AEB0A /* PremiumSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8A0B1245598E9003AEB0A /* PremiumSignInViewController.swift */; };
 		6A359DA3230D4329002C2546 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A359DA2230D4329002C2546 /* UITableViewExtension.swift */; };
 		6A961C5C23053FE200FC9402 /* ObservableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A961C5B23053FE200FC9402 /* ObservableExtension.swift */; };
 		6AB89F38230BD72000712501 /* StyleableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB89F37230BD72000712501 /* StyleableExtension.swift */; };
@@ -113,6 +116,9 @@
 /* Begin PBXFileReference section */
 		08891122A4BC481EC482E46D /* Pods-MVVMPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPracticeTests/Pods-MVVMPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B9F22409C555A0AB52111A1 /* Pods-MVVMPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPracticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPracticeUITests/Pods-MVVMPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		39C8A0AD2455895C003AEB0A /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
+		39C8A0AE2455895C003AEB0A /* ImageTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTextField.xib; sourceTree = "<group>"; };
+		39C8A0B1245598E9003AEB0A /* PremiumSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumSignInViewController.swift; sourceTree = "<group>"; };
 		52924BECE98D32A05AA23DC5 /* Pods_MVVMPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A359DA2230D4329002C2546 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		6A961C5B23053FE200FC9402 /* ObservableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableExtension.swift; sourceTree = "<group>"; };
@@ -387,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				6AC240DE22F9433D00C9561D /* SignInViewController.swift */,
+				39C8A0B1245598E9003AEB0A /* PremiumSignInViewController.swift */,
 				6AC240DD22F9433D00C9561D /* SignInViewModel.swift */,
 			);
 			path = SignInModule;
@@ -452,6 +459,8 @@
 				6AC240B222F942FD00C9561D /* FavoriteCheckBox.swift */,
 				6AC240BE22F9430800C9561D /* CustomTextField.swift */,
 				6AC240BD22F9430800C9561D /* CustomTextField.xib */,
+				39C8A0AD2455895C003AEB0A /* ImageTextField.swift */,
+				39C8A0AE2455895C003AEB0A /* ImageTextField.xib */,
 				6AC240BF22F9430800C9561D /* InputTextViewModel.swift */,
 			);
 			path = CustomViews;
@@ -670,6 +679,7 @@
 				6AC2409022F942C300C9561D /* TitilliumWeb-RegularItalic.ttf in Resources */,
 				6AC2409122F942C300C9561D /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				6AC2409422F942C300C9561D /* TitilliumWeb-Regular.ttf in Resources */,
+				39C8A0B024558CDB003AEB0A /* ImageTextField.xib in Resources */,
 				6AC240F222F9435700C9561D /* TextTableViewCell.xib in Resources */,
 				6AC2404322F93D4600C9561D /* Main.storyboard in Resources */,
 				6AC240D122F9432400C9561D /* TableViewCell.xib in Resources */,
@@ -790,6 +800,7 @@
 				6AC512F3230E7CA2009D24ED /* ArrayExtension.swift in Sources */,
 				6AC240D822F9432D00C9561D /* CollectionFlowLayout.swift in Sources */,
 				6AC240E522F9435000C9561D /* RegisterViewModel.swift in Sources */,
+				39C8A0B2245598E9003AEB0A /* PremiumSignInViewController.swift in Sources */,
 				6AC240BA22F942FD00C9561D /* UIColorExtension.swift in Sources */,
 				6AC2410622F9436D00C9561D /* MainCoordinator.swift in Sources */,
 				6AC240DF22F9433E00C9561D /* SignInViewModel.swift in Sources */,
@@ -818,6 +829,7 @@
 				6AC2410522F9436D00C9561D /* Coordinator.swift in Sources */,
 				6AC240C922F9431D00C9561D /* ImagesCollectionView.swift in Sources */,
 				6AC240E022F9433E00C9561D /* SignInViewController.swift in Sources */,
+				39C8A0AF2455895C003AEB0A /* ImageTextField.swift in Sources */,
 				6AC240B422F942FD00C9561D /* UIImageExtension.swift in Sources */,
 				6AC240BC22F942FD00C9561D /* FavoriteCheckBox.swift in Sources */,
 				6AC240D722F9432D00C9561D /* CollectionViewController.swift in Sources */,

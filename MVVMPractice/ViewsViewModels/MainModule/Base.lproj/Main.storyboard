@@ -19,35 +19,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-1b-ujI">
-                                <rect key="frame" x="106" y="249.5" width="163" height="188"/>
+                                <rect key="frame" x="106" y="224.5" width="163" height="238"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79a-0G-oIS">
                                         <rect key="frame" x="0.0" y="0.0" width="163" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="signInButtonButton:" destination="PxT-Rk-me4" eventType="touchUpInside" id="HG1-AW-YBO"/>
+                                            <action selector="signInButtonDidTap:" destination="PxT-Rk-me4" eventType="touchUpInside" id="vQd-l9-YKX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cx9-0B-44z">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38t-fM-u1C">
                                         <rect key="frame" x="0.0" y="50" width="163" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="registerButtonButton:" destination="PxT-Rk-me4" eventType="touchUpInside" id="LnE-9a-eDg"/>
+                                            <action selector="premiumSignInDidTap:" destination="PxT-Rk-me4" eventType="touchUpInside" id="aFo-WC-UrX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cx9-0B-44z">
+                                        <rect key="frame" x="0.0" y="100" width="163" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="registerButtonDidTap:" destination="PxT-Rk-me4" eventType="touchUpInside" id="zLg-fN-6Np"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMs-1H-Ifh">
-                                        <rect key="frame" x="0.0" y="100" width="163" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="163" height="30"/>
                                         <state key="normal" title="Collection Controller"/>
                                         <connections>
-                                            <action selector="collectionButton:" destination="PxT-Rk-me4" eventType="touchUpInside" id="5ER-Tz-PYJ"/>
+                                            <action selector="collectionButtonDidTap:" destination="PxT-Rk-me4" eventType="touchUpInside" id="Y4b-OQ-Oxz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-r8-P4F">
-                                        <rect key="frame" x="0.0" y="150" width="163" height="38"/>
+                                        <rect key="frame" x="0.0" y="200" width="163" height="38"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="Properties Controller"/>
                                         <connections>
-                                            <action selector="tableViewButtonDidTap:" destination="PxT-Rk-me4" eventType="touchUpInside" id="2og-yj-QYf"/>
+                                            <action selector="tableViewButtonDidTap:" destination="PxT-Rk-me4" eventType="touchUpInside" id="HNY-TV-dAQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -63,6 +70,7 @@
                     <navigationItem key="navigationItem" id="tOy-LJ-8c7"/>
                     <connections>
                         <outlet property="collectionButton" destination="LMs-1H-Ifh" id="uMa-PI-wKu"/>
+                        <outlet property="premiumSignInButton" destination="38t-fM-u1C" id="C2q-Ec-hDY"/>
                         <outlet property="registerButton" destination="Cx9-0B-44z" id="rVa-M5-ngh"/>
                         <outlet property="signInButton" destination="79a-0G-oIS" id="YBw-ZG-K8M"/>
                         <outlet property="tableViewButton" destination="JzJ-r8-P4F" id="nS5-Ji-Dc1"/>
@@ -172,32 +180,88 @@
             <point key="canvasLocation" x="40.799999999999997" y="26.53673163418291"/>
         </scene>
         <!--Sign In View Controller-->
+        <scene sceneID="G1x-gg-IDA">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="63l-dT-neX" customClass="SignInViewController" customModule="MVVMPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZFa-gs-Pop">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GxE-aD-1u9">
+                                <rect key="frame" x="10" y="258.5" width="355" height="170"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iL9-Co-230" customClass="CustomTextField" customModule="MVVMPractice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="o3R-N9-HBz"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahx-PR-4pd" customClass="CustomTextField" customModule="MVVMPractice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="355" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="GEh-dp-Nlb"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab1-Pf-Z7n">
+                                        <rect key="frame" x="0.0" y="140" width="355" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="signInButtonDidTap:" destination="g9s-VG-8vg" eventType="touchUpInside" id="80U-Bm-MS7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GxE-aD-1u9" firstAttribute="centerX" secondItem="kz8-Cj-m2z" secondAttribute="centerX" id="MEC-JS-oFj"/>
+                            <constraint firstItem="GxE-aD-1u9" firstAttribute="centerY" secondItem="kz8-Cj-m2z" secondAttribute="centerY" id="ZAD-98-Igp"/>
+                            <constraint firstItem="GxE-aD-1u9" firstAttribute="leading" secondItem="kz8-Cj-m2z" secondAttribute="leading" constant="10" id="g5b-30-iA1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kz8-Cj-m2z"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="iL9-Co-230" id="Iod-6e-YfF"/>
+                        <outlet property="passwordTextField" destination="ahx-PR-4pd" id="Ozr-2c-A0w"/>
+                        <outlet property="signInButton" destination="Ab1-Pf-Z7n" id="Wf0-LI-pXk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VHC-gK-hgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1556" y="707"/>
+        </scene>
+        <!--Premium Sign In View Controller-->
         <scene sceneID="FKm-lu-owN">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="g9s-VG-8vg" customClass="SignInViewController" customModule="MVVMPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PremiumSignInViewController" id="g9s-VG-8vg" customClass="PremiumSignInViewController" customModule="MVVMPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zmc-dO-Z0w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="upu-6r-Nux">
-                                <rect key="frame" x="10" y="258.5" width="355" height="170"/>
+                                <rect key="frame" x="10" y="243.5" width="355" height="200"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFP-19-ics" customClass="CustomTextField" customModule="MVVMPractice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFP-19-ics" customClass="ImageTextField" customModule="MVVMPractice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="etj-uz-l5v"/>
+                                            <constraint firstAttribute="height" constant="65" id="etj-uz-l5v"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOA-Kq-3tw" customClass="CustomTextField" customModule="MVVMPractice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70" width="355" height="60"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOA-Kq-3tw" customClass="ImageTextField" customModule="MVVMPractice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="75" width="355" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Bi6-cF-4B9"/>
+                                            <constraint firstAttribute="height" constant="65" id="Bi6-cF-4B9"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awX-Ys-7jU">
-                                        <rect key="frame" x="0.0" y="140" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="355" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="N5T-hk-iNb"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="signInButtonDidTap:" destination="g9s-VG-8vg" eventType="touchUpInside" id="9ff-pp-u3C"/>

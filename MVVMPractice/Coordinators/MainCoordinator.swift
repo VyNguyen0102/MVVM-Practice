@@ -29,6 +29,11 @@ class MainCoordinator: Coordinator {
         let vc: SignInViewController = storyboard.instantiateViewController()
         navigationController.pushViewController(vc, animated: true)
     }
+
+    func gotoPremiumSignInViewController() {
+        let vc: PremiumSignInViewController = storyboard.instantiateViewController()
+        navigationController.pushViewController(vc, animated: true)
+    }
     
     func gotoRegisterViewController() {
         let vc: RegisterViewController = storyboard.instantiateViewController()

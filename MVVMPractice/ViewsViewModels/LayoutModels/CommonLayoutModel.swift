@@ -64,6 +64,27 @@ enum InputType {
             return false
         }
     }
+
+    var icon: UIImage? {
+        switch self {
+        case .email:
+            return #imageLiteral(resourceName: "text-field-mail")
+        case .password:
+            return #imageLiteral(resourceName: "text-field-pass")
+        default:
+            return nil
+        }
+    }
+
+    var isShowValid: Bool {
+        switch self {
+        case .email:
+            return true
+        default:
+            return false
+        }
+    }
+
 }
 
 enum TextFieldError {
